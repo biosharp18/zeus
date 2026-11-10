@@ -1,11 +1,9 @@
 # ZeUS: Zero Shot Unified Symmetrization Generating Symmetric Complexes
 
-ZeUS is an inference-time modification to pretrained protein generative models enabling efficient and scalable generation of symmetric protein assemblies.
+ZeUS is an inference-time modification to pretrained protein generative models enabling efficient and scalable generation of symmetric protein assemblies. ZeUS offers a lossless $O(k)$ reduction in time and max memory, for SE3-equivariant and chain-permutation-equivariant models, where $k$ is the order of the symmetry group to be generated. 
 
-Symmetric protein backbone generation with the modified FrameDiff, FoldFlow-1,
-and RFdiffusion implementations, followed by ProteinMPNN sequence design and
-ESMFold refolding.
-We include implementations of IPA and Axial Attention
+This repo includes implementations of the symmetry-aware IPA and Axial-Attention algorithms in the paper, for FrameDiff, FoldFlow-1,
+and RFdiffusion. 
 <p align="center">
   <img src="title_fig.png" alt="Overview of ZeUS" />
 </p>
@@ -53,7 +51,7 @@ curl -fL --retry 3 -o weights/Base_ckpt.pt \
 curl -fL --retry 3 -o weights/protein_mpnn/v_48_020.pt \
   https://raw.githubusercontent.com/dauparas/ProteinMPNN/main/vanilla_model_weights/v_48_020.pt
 ```
-## Generate
+## Generation
 
 ```bash
 CUDA_VISIBLE_DEVICES=X uv run --project "environments/<model>" zeus generate \
@@ -102,7 +100,7 @@ CUDA_VISIBLE_DEVICES=0 uv run --project environments/rfdiffusion zeus generate \
   --output outputs/rfdiffusion_c6
 ```
 
-## Refold
+## Refolding
 
 ```bash
 CUDA_VISIBLE_DEVICES=X uv run --project environments/refold zeus refold \
