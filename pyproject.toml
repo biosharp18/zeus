@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zeus-protein"
+version = "0.1.0"
+description = "Symmetric protein generation with ZeUS and ProteinMPNN/ESMFold refolding"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+zeus = "zeus.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

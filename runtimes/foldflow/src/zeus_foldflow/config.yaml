@@ -1,0 +1,48 @@
+data:
+  min_t: 0.01
+  num_t: 50
+model:
+  model_name: ff1
+  node_embed_size: 256
+  edge_embed_size: 128
+  dropout: 0.0
+  embed:
+    index_embed_size: 32
+    aatype_embed_size: 64
+    embed_self_conditioning: true
+    num_bins: 22
+    min_bin: 1e-5
+    max_bin: 20.0
+  ipa:
+    c_s: ${model.node_embed_size}
+    c_z: ${model.edge_embed_size}
+    c_hidden: 256
+    c_skip: 64
+    no_heads: 8
+    no_qk_points: 8
+    no_v_points: 12
+    seq_tfmr_num_heads: 4
+    seq_tfmr_num_layers: 2
+    num_blocks: 4
+    coordinate_scaling: ${flow_matcher.r3.coordinate_scaling}
+    p_uncond: 0.2
+  axis_angle: ${flow_matcher.so3.axis_angle}
+flow_matcher:
+  flow_trans: true
+  flow_rot: true
+  ot_fn: exact
+  reg: 0.05
+  ot_plan: false
+  stochastic_paths: false
+  r3:
+    min_b: 0.01
+    min_sigma: 0.01
+    max_b: 20.0
+    coordinate_scaling: 0.1
+    g: 0.1
+  so3:
+    min_sigma: 0.01
+    max_sigma: 1.5
+    axis_angle: true
+    inference_scaling: 10.0
+    g: 0.1

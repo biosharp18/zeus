@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zeus-rfdiffusion"
+version = "0.1.0"
+requires-python = ">=3.8"
+dependencies = ["numpy>=1.23,<2", "scipy>=1.9,<1.14", "torch>=1.9,<2", "hydra-core==1.3.2", "pyrsistent", "biopython>=1.79,<1.84", "opt-einsum", "zeus-se3-transformer"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.npz", "*.txt", "config/*.yaml", "assets/*.pdb"]

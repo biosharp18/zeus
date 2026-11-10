@@ -1,0 +1,34 @@
+[project]
+name = "zeus-foldflow-env"
+version = "0.1.0"
+requires-python = ">=3.8,<3.9"
+dependencies = [
+    "zeus-protein",
+    "zeus-foldflow",
+    "zeus-openfold",
+    "torch==2.4.1+cu118",
+    "numpy==1.24.3",
+    "scipy==1.10.1",
+    "biopython==1.83",
+    "omegaconf==2.3.0",
+    "dm-tree==0.1.8",
+    "ml-collections==0.1.1",
+    "geomstats==2.6.0",
+    "einops==0.6.1",
+]
+
+[tool.uv]
+package = false
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+required-environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+
+[tool.uv.sources]
+zeus-protein = { path = "../..", editable = true }
+zeus-foldflow = { path = "../../runtimes/foldflow", editable = true }
+zeus-openfold = { path = "../../third_party/openfold", editable = true }
+torch = { index = "pytorch-cu118" }
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true

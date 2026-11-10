@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zeus-protein-mpnn"
+version = "0.1.0"
+requires-python = ">=3.8"
+dependencies = ["torch>=1.9", "numpy>=1.23,<2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.npz", "*.txt", "config/*.yaml", "assets/*.pdb"]

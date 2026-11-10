@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zeus-openfold"
+version = "0.1.0"
+requires-python = ">=3.8"
+dependencies = ["numpy>=1.23,<2", "scipy>=1.9,<1.14", "torch>=1.9", "biopython>=1.79,<1.84", "dm-tree", "ml-collections"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.npz", "*.txt", "config/*.yaml", "assets/*.pdb"]
