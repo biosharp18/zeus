@@ -1,15 +1,16 @@
-# ZeUS
+# ZeUS: Zero Shot Unified Symmetrization Generating Symmetric Complexes
+
+ZeUS is an inference-time modification to pretrained protein generative models enabling efficient and scalable generation of symmetric protein assemblies.
 
 Symmetric protein backbone generation with the modified FrameDiff, FoldFlow-1,
 and RFdiffusion implementations, followed by ProteinMPNN sequence design and
 ESMFold refolding.
+We include implementations of IPA and Axial Attention
+<p align="center">
+  <img src="title_fig.png" alt="Overview of ZeUS" />
+</p>
 
-This repository contains inference code and its required source dependencies.
-Model implementations are ordinary directories in this repository. There are no
-Git submodules and no dependency on the experiment repository or private forks.
-Checkpoints, generated structures, training code, paper experiment queues,
-benchmark sweeps, and table-building scripts are excluded.
-
+> **Paper:** [Efficient and Accurate Zero Shot Generation of Symmetric Protein Complexes](https://arxiv.org/abs/2611.10424)
 ## Install
 
 We use uv for package management. Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run
